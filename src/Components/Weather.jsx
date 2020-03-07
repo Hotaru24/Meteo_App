@@ -32,14 +32,20 @@ const apiKey = "b2307c78a2534a93cbd29390deba0618";
   }) 
 
   return (
-    <div>
+    <>
       <h2>{name}</h2>
-      <img src={icon} alt={layout}/>
+      <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt={layout}/>
       <p>{temp}°C</p>
       <p>Humidity : {humidity}%</p>
-      <p>Wind speed : {Math.round(widSpeed*3.6)} km/h</p>
-    </div>
-
+      <div>
+        <p>Wind speed : {Math.round(widSpeed*3.6)} km/h </p>
+        <img 
+          src={`${process.env.PUBLIC_URL}arrow.png`}
+          alt="logo" 
+          style={ {transform: `rotate(${windDegree}deg)`, maxWidth: '100px'}}
+        />
+      </div>
+    </>
   )
 }
 
