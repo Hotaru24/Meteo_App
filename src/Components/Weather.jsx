@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
-
+import '../Style/Weather.css';
 
 
 const  Weather = () => {
 
-const [name, setName] = useState('');
-const [icon, setIcon] = useState('');
-const [layout, setLayout] = useState('');
-const [temp, setTemp] = useState(0);
-const [humidity, setHumidity] = useState(0);
-const [widSpeed, setWindSpeed] = useState(0);
-const [windDegree, setWindDegree] = useState(0);
-const apiKey = "b2307c78a2534a93cbd29390deba0618";  
-
+  const [name, setName] = useState('');
+  const [icon, setIcon] = useState('');
+  const [layout, setLayout] = useState('');
+  const [temp, setTemp] = useState(0);
+  const [humidity, setHumidity] = useState(0);
+  const [widSpeed, setWindSpeed] = useState(0);
+  const [windDegree, setWindDegree] = useState(0);
+  const apiKey = "b2307c78a2534a93cbd29390deba0618";  
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition( (position) => {
@@ -34,16 +32,20 @@ const apiKey = "b2307c78a2534a93cbd29390deba0618";
   return (
     <>
       <h2>{name}</h2>
-      <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt={layout}/>
-      <p>{temp}°C</p>
-      <p>Humidité : {humidity}%</p>
-      <div>
-        <p>Vitesse du vent : {Math.round(widSpeed*3.6)} km/h </p>
-        <img 
-          src={`${process.env.PUBLIC_URL}arrow.png`}
-          alt="logo" 
-          style={ {transform: `rotate(${windDegree}deg)`, maxWidth: '100px'}}
-        />
+      <div className="data-body">
+        <div className="appData">
+          <p id="temp">{temp}°C</p>
+          <p>Humidité : {humidity}%</p>
+        </div>
+        <div className="appData">
+          <p>Vent : {Math.round(widSpeed*3.6)} km/h </p>
+          <img 
+            src={`${process.env.PUBLIC_URL}arrow.png`}
+            alt="logo" 
+            style={ {transform: `rotate(${windDegree}deg)`, maxWidth: '80px'}}
+          />
+        </div>
+        <img id="weatherPic" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt={layout}/>
       </div>
     </>
   )

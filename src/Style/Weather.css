@@ -1,0 +1,25 @@
+.data-body{
+  display: flex;
+}
+
+h2{
+  font-size: 4em;
+}
+
+.appData{
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#temp{
+  font-size: 2em;
+  margin: 0;
+}
+
+#weatherPic{
+  height: 240px;
+  width: 240px;
+}
