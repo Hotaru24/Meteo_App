@@ -36,9 +36,9 @@ const apiKey = "b2307c78a2534a93cbd29390deba0618";
       <h2>{name}</h2>
       <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt={layout}/>
       <p>{temp}°C</p>
-      <p>Humidity : {humidity}%</p>
+      <p>Humidité : {humidity}%</p>
       <div>
-        <p>Wind speed : {Math.round(widSpeed*3.6)} km/h </p>
+        <p>Vitesse du vent : {Math.round(widSpeed*3.6)} km/h </p>
         <img 
           src={`${process.env.PUBLIC_URL}arrow.png`}
           alt="logo" 
